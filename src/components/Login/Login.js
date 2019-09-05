@@ -12,6 +12,17 @@ class Login extends Component {
     }
   }
 
+  structureUserObject = (e) => {
+    e.preventDefault();
+    const { createName, createEmail, createPassword} = this.state;
+    const userObject = {
+      name: createName,
+      email: createEmail,
+      password: createPassword
+    }
+    this.props.createNewUser(userObject)
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -45,7 +56,7 @@ class Login extends Component {
               value={createPassword}
               onChange={(e) => this.handleChange(e)}
             />
-          <button onClick>Create Account</button>
+          <button onClick={(e) => this.structureUserObject(e)}>Create Account</button>
           </form>
         </article>
         <article>
