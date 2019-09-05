@@ -1,0 +1,11 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: nav;
+}
+
+ li {
+   display: inline;
+   margin: 0px 5px;
+ }
