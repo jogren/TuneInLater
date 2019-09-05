@@ -5,15 +5,18 @@ const Nav = () => {
   return (
     <nav>
       <h1>TuneInLater</h1>
-      <ul>
-        <li>Home</li>
-        <li>Comedy</li>
-        <li>Horror</li>
-        <li>Fantasy</li>
-        <li>Romance</li>
-        <li>Adventure</li>
-        <li>Non-Fiction</li>
-      </ul>
+      <div>
+      <select className="select-container">
+        <option value="0">Select Genre:</option>
+        <option value="1">Home</option>
+        <option value="2">Comedy</option>
+        <option value="3">Horror</option>
+        <option value="4">Fantasy</option>
+        <option value="5">Romance</option>
+        <option value="6">Adventure</option>
+        <option value="7">Non-Fiction</option>
+      </select>
+      </div>
       <h2>Welcome, ~Name~</h2>
     </nav>
   );
