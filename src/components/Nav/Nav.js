@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Nav.css';
+import api from '../API/api.js'
 
-const Nav = () => {
+class Nav extends Component {
+  constructor(props) {
+    super(props)
+    console.log(this.props)
+    this.state = {
+      search: ""
+    }
+  }
+
+handleSearch(e){
+  this.setState({[e.target.name]: e.target.value})
+}
+
+  render() {
   return (
     <nav>
       <h1>TuneInLater</h1>
       <div>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search.."
+          value={this.state.search}
+          onChange={e => this.handleSearch(e)}
+          / >
+        <button onClick={() => this.props.newSearch(this.state.search) }>Submit</button>
+      </div>
       <select className="select-container">
         <option value="0">Select Genre:</option>
         <option value="1">Home</option>
@@ -16,10 +39,10 @@ const Nav = () => {
         <option value="6">Adventure</option>
         <option value="7">Non-Fiction</option>
       </select>
-      </div>
       <h2>Welcome, ~Name~</h2>
     </nav>
   );
+}
 }
 
 export default Nav;
