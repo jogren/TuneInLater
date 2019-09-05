@@ -5,7 +5,30 @@ nav {
   grid-area: nav;
 }
 
- li {
+.select-container {
+  position: relative;
+  width: 300px;
+}
+
+.select-container select {
+  display: none;
+}
+
+.select-selected {
+  background-color: plum;
+}
+
+.select-selected:after {
+  position: absolute;
+  content: '';
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: black transparent transparent transparent; 
+}
+ /* li {
    display: inline;
    margin: 0px 5px;
- }
+ } */
