@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
 import BookContainer from '../BookContainer/BookContainer';
+import Login from '../Login/Login';
+import { Route } from 'react-router-dom'
 import './App.css';
 import api from '../API/api.js'
 
@@ -12,41 +14,26 @@ class App extends Component {
     }
   }
 
-  render () {
-    console.log(this.state)
-    return (
-      <main>
-        <Nav newSearch={this.newSearch}/>
-        <BookContainer />
-      </main>
-    )
+  newSearch = async (text) => {
+    const audio = await api.getAudio(text)
+    this.setState({audiobooks: audio})
   }
 
-
-// async getAudio(text) {
-//   const url = `https://itunes.apple.com/search?term=${text}&media=audiobook`
-//   try {
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//       throw new Error('There was an error getting your data');
-//     }
-//     const audiobooks = await response.json();
-//     return audiobooks.results
-//   } catch(error) {
-//     throw new Error(error.message);
-//   }
-// }
-
-newSearch = async (text) => {
-  const audio = await api.getAudio(text)
-  this.setState({audiobooks: audio})
-}
-
-
-  // async componentDidMount() {
-  //   this.newSearch("")
-  // }
-
+  render () {
+    console.log(this.state)
+    const { audiobooks } = this.state
+    return (
+      <div>
+        <Route exact path='/' component={Login}/>
+        <Route path='/Home'render={() => 
+          <main>
+            <Nav newSearch={this.newSearch} />
+            <BookContainer audiobooks={audiobooks} />
+          </main>
+        } />
+      </div>
+    )
+  }
 }
 
 export default App;

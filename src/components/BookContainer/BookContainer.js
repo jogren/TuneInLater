@@ -1,11 +1,15 @@
 import React from 'react';
+import Book from '../Book/Book';
 import './BookContainer.css';
 
-const BookContainer = () => {
+const BookContainer = ({ audiobooks }) => {
+  let audiobookList = audiobooks.map((book, index) => {
+    return <Book key={index} bookName={book.bookName} author={book.author} art={book.art}/>
+  })
 
   return (
     <section className="BookContainer_section">
-      <h3>This is the book container</h3>
+      {audiobookList}
     </section>
   )
 

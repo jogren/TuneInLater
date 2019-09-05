@@ -3,7 +3,7 @@ const api = {
 
  async getAudio(text) {
 
-  const url = `https://itunes.apple.com/search?term=${text}&media=audiobook`
+  const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -11,7 +11,13 @@ const api = {
     }
     const audiobooks = await response.json();
     console.log(text)
-    return audiobooks.results
+    return audiobooks.results.map(book => ({
+      author: book.artistName,
+      art: book.artworkUrl100,
+      bookName: book.collectionName,
+      description: book.description,
+      genre: book.primaryGenreName
+    }))
   } catch(error) {
     throw new Error(error.message);
   }
