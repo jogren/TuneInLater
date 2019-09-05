@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       createName: '',
       createEmail: '',
@@ -17,13 +17,14 @@ class Login extends Component {
   }
 
   render() {
+    console.log(this.props, 'login')
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
       <section>
         <article>
           <h4>Create An Account</h4>
           <form>
-            <input 
+            <input
               type="text"
               placeholder="Name"
               name="createName"
@@ -44,7 +45,7 @@ class Login extends Component {
               value={createPassword}
               onChange={(e) => this.handleChange(e)}
             />
-            <button>Create Account</button>
+          <button onClick>Create Account</button>
           </form>
         </article>
         <article>
