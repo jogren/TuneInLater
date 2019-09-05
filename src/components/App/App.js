@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Nav from '../Nav/Nav';
+import BookContainer from '../BookContainer/BookContainer';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +14,10 @@ class App extends Component {
   render () {
     console.log(this.state)
     return (
-      <h1>Helllooooo</h1>
+      <main>
+        <Nav />
+        <BookContainer />
+      </main>
     )
   }
 
