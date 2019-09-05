@@ -5,6 +5,10 @@ const Nav = () => {
   return (
     <nav>
       <h1>TuneInLater</h1>
+      <form>
+        <input></input>
+        <button>Submit</button>
+      </form>
       <ul>
         <li>Home</li>
         <li>Comedy</li>
