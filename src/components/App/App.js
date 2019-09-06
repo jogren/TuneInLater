@@ -11,9 +11,11 @@ class App extends Component {
     super()
     this.state = {
       audiobooks: [],
-      currentUser: 'hey'
+      currentUser: '',
+      favorites: []
     }
   }
+
 
 
   newSearch = async (text) => {
@@ -31,7 +33,7 @@ class App extends Component {
   }
 
   render () {
-    console.log('currentUser', this.state.currentUser)
+    console.log('app state', this.state)
     const { audiobooks } = this.state
     return (
       <div>

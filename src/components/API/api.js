@@ -16,7 +16,9 @@ const api = {
        art: book.artworkUrl100,
        bookName: book.collectionName,
        description: book.description,
-       genre: book.primaryGenreName
+       genre: book.primaryGenreName,
+       favorite: false,
+       id: Date.now()
      }))
    } catch(error) {
      throw new Error(error.message);

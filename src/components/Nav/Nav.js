@@ -39,7 +39,7 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
-        <h2>Welcome,{user}</h2>
+        <h2>Welcome, {user}</h2>
       </nav>
     );
   };
