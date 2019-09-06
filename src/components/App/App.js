@@ -30,6 +30,16 @@ class App extends Component {
     this.setState({ currentUser: current})
   }
 
+  postFavorite = async (favoriteInfo, currentUserID) => {
+    await api.newFavorite()
+  }
+
+
+// bookfavorites requires: book_id (Integer), author_name (String),
+// book_name VARCHAR (String), artwork_url (String), release_date (String),
+// description (String), primary_genre_name (String)
+
+
   toggleFavorite = (favorite) => {
     if (this.state.favorites.find(book => book.bookName === favorite.bookName)) {
       let index = this.state.favorites.indexOf(favorite);
@@ -39,12 +49,8 @@ class App extends Component {
     } else {
       favorite.favorite = true;
       this.setState({ favorites: [...this.state.favorites, favorite] });
+      // this.postFavorite(favorite, this.state.currentUser.id)
     }
-  //   console.log("favfirst", favorite)
-  // if(!favorite.favorite) {
-  //   favorite.favorite = true;
-  //   this.setState({ favorites: [...this.state.favorites, favorite] });
-  //   console.log('fav2', favorite)
 
 }
 
