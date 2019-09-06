@@ -2,6 +2,7 @@
 const api = {
 
   async getAudio(text) {
+
    const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
    try {
      const response = await fetch(url);
@@ -64,6 +65,7 @@ const api = {
       throw new Error(error.message);
     }
   }
+
 }
 
 export default api

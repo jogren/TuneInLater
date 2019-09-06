@@ -11,9 +11,10 @@ class App extends Component {
     super()
     this.state = {
       audiobooks: [],
-      currentUser: ''
+      currentUser: 'hey'
     }
   }
+
 
   newSearch = async (text) => {
     const audio = await api.getAudio(text)
@@ -25,12 +26,11 @@ class App extends Component {
   }
 
   logInUser = async (userInfo) => {
-    const currentUser = await api.logIn(userInfo)
-    this.setState({ currentUser: currentUser})
+    const current = await api.logIn(userInfo)
+    this.setState({ currentUser: current})
   }
 
   render () {
-    console.log('state', this.state)
     console.log('currentUser', this.state.currentUser)
     const { audiobooks } = this.state
     return (
@@ -38,7 +38,7 @@ class App extends Component {
         <Route exact path='/' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />
         <Route path='/home' render={() =>
           <main>
-            <Nav newSearch={this.newSearch} currentUser={this.currentUser}/>
+            <Nav newSearch={this.newSearch} currentUser={this.state.currentUser} />
             <BookContainer audiobooks={audiobooks} />
           </main>
         } />
