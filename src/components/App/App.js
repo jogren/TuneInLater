@@ -24,15 +24,20 @@ class App extends Component {
     await api.createNewUser(userInfo)
   }
 
-  
+  logInUser = async (userInfo) => {
+    const currentUser = await api.logIn(userInfo)
+    this.setState({currentUser})
+  }
+
+
 
   render () {
     console.log(this.state)
     const { audiobooks } = this.state
     return (
       <div>
-        <Route exact path='/' render={() => <Login createNewUser={this.makeNewUser} /> } />
-        <Route path='/Home'render={() =>
+        <Route exact path='/' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />
+        <Route path='/home'render={() =>
           <main>
             <Nav newSearch={this.newSearch} />
             <BookContainer audiobooks={audiobooks} />
