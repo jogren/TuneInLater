@@ -4,9 +4,8 @@ import './Nav.css';
 class Nav extends Component {
   constructor(props) {
     super(props)
-    console.log(this.props)
     this.state = {
-      search: ""
+      search: ''
     }
   }
 
@@ -15,8 +14,8 @@ class Nav extends Component {
   }
 
   render() {
-    let userName = this.props.currentUser;
-    console.log(userName);
+    console.log('nav-props-on-render', this.props)
+    const user = this.props.currentUser.name
     return (
       <nav>
         <h1>TuneInLater</h1>
@@ -40,7 +39,7 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
-        <h2>Welcome, {userName}</h2>
+        <h2>Welcome, {user}</h2>
       </nav>
     );
   };
