@@ -16,8 +16,6 @@ class App extends Component {
     }
   }
 
-
-
   newSearch = async (text) => {
     const audio = await api.getAudio(text)
     this.setState({audiobooks: audio})
@@ -32,6 +30,24 @@ class App extends Component {
     this.setState({ currentUser: current})
   }
 
+  toggleFavorite = (favorite) => {
+    if (this.state.favorites.find(book => book.bookName === favorite.bookName)) {
+      let index = this.state.favorites.indexOf(favorite);
+      this.state.favorites.splice(index, 1);
+      this.setState({...this.state.favorites})
+      favorite["favorite"] = false;
+    } else {
+      favorite.favorite = true;
+      this.setState({ favorites: [...this.state.favorites, favorite] });
+    }
+  //   console.log("favfirst", favorite)
+  // if(!favorite.favorite) {
+  //   favorite.favorite = true;
+  //   this.setState({ favorites: [...this.state.favorites, favorite] });
+  //   console.log('fav2', favorite)
+
+}
+
   render () {
     console.log('app state', this.state)
     const { audiobooks } = this.state
@@ -41,7 +57,7 @@ class App extends Component {
         <Route path='/home' render={() =>
           <main>
             <Nav newSearch={this.newSearch} currentUser={this.state.currentUser} />
-            <BookContainer audiobooks={audiobooks} />
+            <BookContainer audiobooks={audiobooks} toggleFavorite={this.toggleFavorite} />
           </main>
         } />
       </div>

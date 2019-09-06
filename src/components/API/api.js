@@ -10,7 +10,7 @@ const api = {
        throw new Error('There was an error getting your data');
      }
      const audiobooks = await response.json();
-     console.log(text)
+     console.log(audiobooks.results)
      return audiobooks.results.map(book => ({
        author: book.artistName,
        art: book.artworkUrl100,
@@ -18,7 +18,7 @@ const api = {
        description: book.description,
        genre: book.primaryGenreName,
        favorite: false,
-       id: Date.now()
+       id: book.collectionId
      }))
    } catch(error) {
      throw new Error(error.message);
