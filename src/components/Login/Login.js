@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -23,12 +24,20 @@ class Login extends Component {
     this.props.createNewUser(userObject)
   }
 
+  structureLoginUserObject = (e) => {
+    const { loginEmail, loginPassword } = this.state;
+    const userObject = {
+      email: loginEmail,
+      password: loginPassword
+    }
+    this.props.loginUser(userObject)
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
-    console.log(this.props, 'login')
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
       <section>
@@ -76,7 +85,9 @@ class Login extends Component {
               value={loginPassword}
               onChange={(e) => this.handleChange(e)}
             />
-            <button>Create Account</button>
+            <NavLink to='/home'>
+              <button onClick={(e) => this.structureLoginUserObject(e)}>Login</button>
+            </NavLink>
           </form>
         </article>
       </section>
