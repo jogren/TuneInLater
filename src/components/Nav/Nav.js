@@ -39,7 +39,7 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
-        <h2>Welcome, {user}</h2>
+        <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
       </nav>
     );
   };

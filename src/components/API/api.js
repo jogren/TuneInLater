@@ -1,8 +1,7 @@
 
 const api = {
-
+  
   async getAudio(text) {
-
    const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
    try {
      const response = await fetch(url);
@@ -12,20 +11,21 @@ const api = {
      const audiobooks = await response.json();
      console.log(audiobooks.results)
      return audiobooks.results.map(book => ({
-       author: book.artistName,
-       art: book.artworkUrl100,
-       bookName: book.collectionName,
+       author_name: book.artistName,
+       artwork_url: book.artworkUrl100,
+       book_name: book.collectionName,
        description: book.description,
-       genre: book.primaryGenreName,
        favorite: false,
-       id: book.collectionId
+       book_id: book.collectionId,
+       release_date: book.releaseDate,
+       primary_genre_name: book.primaryGenreName
      }))
    } catch(error) {
      throw new Error(error.message);
    }
  },
 
-   async createNewUser(userInfo) {
+  async createNewUser(userInfo) {
     const url = 'http://localhost:3001/api/v1/users'
     try {
       const options = {
@@ -69,6 +69,7 @@ const api = {
   },
 
   async newFavorite(favorite, currentUserID) {
+    console.log(favorite)
     const url = `http://localhost:3001/api/v1/users/${currentUserID}/bookfavorites`
     try {
       const options = {
@@ -88,7 +89,6 @@ const api = {
       throw new Error(error.message);
     }
   }
-
 }
 
-export default api
+export default api;

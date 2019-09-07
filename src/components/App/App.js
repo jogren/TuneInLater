@@ -31,17 +31,24 @@ class App extends Component {
   }
 
   postFavorite = async (favoriteInfo, currentUserID) => {
-    await api.newFavorite()
+    await api.newFavorite(favoriteInfo, currentUserID)
   }
 
-
-// bookfavorites requires: book_id (Integer), author_name (String),
-// book_name VARCHAR (String), artwork_url (String), release_date (String),
-// description (String), primary_genre_name (String)
-
+  structureObject = (favorite) => {
+    return {
+      book_id: favorite.book_id,
+      author_name: favorite.author_name,
+      book_name: favorite.book_name,
+      artwork_url: favorite.artwork_url,
+      release_date: favorite.release_date,
+      description: favorite.description,
+      primary_genre_name: favorite.primary_genre_name
+    }
+  }
 
   toggleFavorite = (favorite) => {
-    if (this.state.favorites.find(book => book.bookName === favorite.bookName)) {
+    console.log(favorite)
+    if (this.state.favorites.find(book => book.book_name === favorite.book_name)) {
       let index = this.state.favorites.indexOf(favorite);
       this.state.favorites.splice(index, 1);
       this.setState({...this.state.favorites})
@@ -49,9 +56,9 @@ class App extends Component {
     } else {
       favorite.favorite = true;
       this.setState({ favorites: [...this.state.favorites, favorite] });
-      // this.postFavorite(favorite, this.state.currentUser.id)
+      const favoriteBook = this.structureObject(favorite)
+      this.postFavorite(favoriteBook, this.state.currentUser.id)
     }
-
 }
 
   render () {
