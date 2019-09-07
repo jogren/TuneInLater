@@ -14,7 +14,6 @@ class Nav extends Component {
   }
 
   render() {
-    console.log('nav-props-on-render', this.props)
     const user = this.props.currentUser.name
     return (
       <nav>
