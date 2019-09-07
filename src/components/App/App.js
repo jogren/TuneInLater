@@ -34,11 +34,6 @@ class App extends Component {
     await api.newFavorite(favoriteInfo, currentUserID)
   }
 
-
-// bookfavorites requires: book_id (Integer), author_name (String),
-// book_name VARCHAR (String), artwork_url (String), release_date (String),
-// description (String), primary_genre_name (String)
-
   structureObject = (favorite) => {
     return {
       book_id: favorite.book_id,
@@ -50,7 +45,6 @@ class App extends Component {
       primary_genre_name: favorite.primary_genre_name
     }
   }
-
 
   toggleFavorite = (favorite) => {
     console.log(favorite)
@@ -65,7 +59,6 @@ class App extends Component {
       const favoriteBook = this.structureObject(favorite)
       this.postFavorite(favoriteBook, this.state.currentUser.id)
     }
-
 }
 
   render () {

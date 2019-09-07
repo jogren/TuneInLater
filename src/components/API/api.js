@@ -1,8 +1,7 @@
 
 const api = {
-
+  
   async getAudio(text) {
-
    const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
    try {
      const response = await fetch(url);
@@ -26,7 +25,7 @@ const api = {
    }
  },
 
-   async createNewUser(userInfo) {
+  async createNewUser(userInfo) {
     const url = 'http://localhost:3001/api/v1/users'
     try {
       const options = {
@@ -90,7 +89,6 @@ const api = {
       throw new Error(error.message);
     }
   }
-
 }
 
-export default api
+export default api;
