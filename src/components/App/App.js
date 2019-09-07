@@ -73,8 +73,8 @@ class App extends Component {
     console.log('app state', this.state)
     return (
       <div>
-        <Route exact path='/' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />
-        <Route path='/home' render={() =>
+        <Route exact path='/login' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />
+        <Route exact path='/' render={() =>
           <main>
             <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} />
             <BookContainer audiobooks={getAudiobooksReducer} toggleFavorite={this.toggleFavorite} />

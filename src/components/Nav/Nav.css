@@ -3,6 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   grid-area: nav;
+  padding: 0px 20px;
 }
 
 .select-container {
@@ -28,7 +29,22 @@ nav {
   border: 6px solid transparent;
   border-color: black transparent transparent transparent; 
 }
- /* li {
-   display: inline;
-   margin: 0px 5px;
- } */
+
+.Nav_login {
+  height: 100px;
+}
+
+h2 {
+  border: 3px black solid;
+}
+
+.p-logout {
+  padding: 5px;
+  font-weight: bold;
+  display: none
+}
+
+.Nav_login:hover .p-logout {
+  display: block;
+  background-color: lightblue;
+}

@@ -8,7 +8,7 @@ const Book = ({ book_name, author_name, artwork_url, book_id, primary_genre_name
       <button onClick={() => toggleFavorite({ book_name, author_name, artwork_url, book_id, description, primary_genre_name, release_date, favorite }) } className="Book_button">Star</button>
       <h3>{book_name}</h3>
       <p>{author_name}</p>
-      <img src={artwork_url}/>
+      <img src={artwork_url} alt={book_name}/>
     </section>
   )
 }
