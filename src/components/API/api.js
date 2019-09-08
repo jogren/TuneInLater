@@ -1,6 +1,6 @@
 
 const api = {
-  
+
   async fetchAudio(text) {
    const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
    try {
@@ -87,7 +87,27 @@ const api = {
     } catch(error) {
       throw new Error(error.message);
     }
+  },
+
+  async dBdeleteFavorite(currentUserID, favoriteId) {
+  const url = `http://localhost:3001/api/v1/users/${currentUserID}/bookfavorites/${favoriteId}`
+  try {
+    const options = {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(url, options)
+    if (!response.ok) {
+      throw new Error('There was an error getting your data');
+    }
+    
+  } catch(error) {
+    throw new Error(error.message);
   }
+}
+
 }
 
 export default api;
