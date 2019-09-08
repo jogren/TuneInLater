@@ -12,7 +12,6 @@ class App extends Component {
 
   newSearch = async (text) => {
     const audio = await api.fetchAudio(text)
-    console.log(audio)
     this.props.getAudiobooks(audio)
     // this.setState({audiobooks: audio})
   }
@@ -42,16 +41,7 @@ class App extends Component {
     }
   }
 
-  logOutUser = () => {
-    // const { getAudiobooksReducer, selectCurrentUserReducer, toggleFavoriteReducer } = this.props;
-    this.props.getAudiobooksReducer = [];
-    this.props.selectCurrentUserReducer = '';
-    this.props.toggleFavoriteReducer = [];
-
-  }
-
     toggleFavorite = (favorite) => {
-      console.log(favorite)
       const { toggleFavoriteReducer, toggleFavoriteBook } = this.props;
       if (toggleFavoriteReducer.find(book => book.book_id === favorite.book_id)) {
         let index = toggleFavoriteReducer.map(book => book.book_id).indexOf(favorite.book_id);
@@ -70,13 +60,12 @@ class App extends Component {
 
   render () {
     const { selectCurrentUserReducer, getAudiobooksReducer } = this.props;
-    console.log('app state', this.state)
     return (
       <div>
         <Route exact path='/login' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />
         <Route exact path='/' render={() =>
           <main>
-            <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} logOutUser={this.logOutUser}  />
+            <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} />
             <BookContainer audiobooks={getAudiobooksReducer} toggleFavorite={this.toggleFavorite} />
           </main>
         } />
