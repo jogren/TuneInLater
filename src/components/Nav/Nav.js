@@ -8,7 +8,8 @@ class Nav extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      search: ''
+      search: '',
+      btnStatus: 'favorite'
     }
   }
 
@@ -16,7 +17,13 @@ class Nav extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  toggleBtnStatus = () => {
+    let toggle = this.state.btnStatus === 'favorite' ? 'showAll' : 'favorite'
+    this.setState({ btnStatus: toggle })
+  }
+
   render() {
+    console.log(this.state.btnStatus)
     const { currentUser, logoutUser, newSearch, fetchUserFavorites } = this.props;
     const user = currentUser.name
     return (
@@ -42,9 +49,12 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
-        <NavLink to='/favorites'>
-          <button onClick={() => fetchUserFavorites(currentUser.id)}>Favorites</button>
-        </NavLink>
+        {this.state.btnStatus === 'favorite' && <NavLink to='/favorites'>
+          <button onClick={() => fetchUserFavorites(currentUser.id)} onClick={this.toggleBtnStatus}>Favorites</button>
+        </NavLink> }
+        {this.state.btnStatus === 'showAll' && <NavLink to='/'>
+          <button onClick={this.toggleBtnStatus}>Show All</button>
+        </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>
