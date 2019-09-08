@@ -9,18 +9,9 @@ import { Route } from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      // audiobooks: [],
-      // currentUser: '',
-      // favorites: []
-    }
-  }
 
   newSearch = async (text) => {
     const audio = await api.fetchAudio(text)
-    console.log(audio)
     this.props.getAudiobooks(audio)
     // this.setState({audiobooks: audio})
   }
@@ -51,7 +42,6 @@ class App extends Component {
   }
 
     toggleFavorite = (favorite) => {
-      console.log(favorite)
       const { toggleFavoriteReducer, toggleFavoriteBook } = this.props;
       if (toggleFavoriteReducer.find(book => book.book_id === favorite.book_id)) {
         let index = toggleFavoriteReducer.map(book => book.book_id).indexOf(favorite.book_id);
@@ -70,7 +60,6 @@ class App extends Component {
 
   render () {
     const { selectCurrentUserReducer, getAudiobooksReducer } = this.props;
-    console.log('app state', this.state)
     return (
       <div>
         <Route exact path='/login' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />

@@ -12,3 +12,7 @@ export const toggleFavoriteBook = favorites => ({
   type: 'TOGGLE_FAVORITE',
   favorites
 });
+
+export const logoutUser = () => ({
+  type: 'LOGOUT_USER'
+});

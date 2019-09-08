@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { logoutUser } from '../actions';
+import { connect } from 'react-redux';
 import './Nav.css';
 
 class Nav extends Component {
@@ -42,13 +44,16 @@ class Nav extends Component {
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>
-            <p className="p-logout">Log out</p>
+            <p onClick={this.props.logoutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>
-
       </nav>
     );
   };
 }
 
-export default Nav;
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser())
+})
+
+export default connect(null, mapDispatchToProps)(Nav);
