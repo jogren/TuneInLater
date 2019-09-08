@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Nav.css';
 
 class Nav extends Component {
@@ -14,7 +15,6 @@ class Nav extends Component {
   }
 
   render() {
-    console.log('nav-props-on-render', this.props)
     const user = this.props.currentUser.name
     return (
       <nav>
@@ -39,7 +39,13 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
-        <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
+        <div className="Nav_login">
+          <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
+          <NavLink exact to='/login'>
+            <p className="p-logout">Log out</p>
+          </NavLink>
+        </div>
+
       </nav>
     );
   };

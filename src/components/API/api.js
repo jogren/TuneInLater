@@ -1,7 +1,7 @@
 
 const api = {
   
-  async getAudio(text) {
+  async fetchAudio(text) {
    const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
    try {
      const response = await fetch(url);
@@ -69,7 +69,6 @@ const api = {
   },
 
   async newFavorite(favorite, currentUserID) {
-    console.log(favorite)
     const url = `http://localhost:3001/api/v1/users/${currentUserID}/bookfavorites`
     try {
       const options = {

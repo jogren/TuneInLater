@@ -85,7 +85,7 @@ class Login extends Component {
               value={loginPassword}
               onChange={(e) => this.handleChange(e)}
             />
-            <NavLink to='/home'>
+            <NavLink to='/'>
               <button onClick={(e) => this.structureLoginUserObject(e)}>Login</button>
             </NavLink>
           </form>
