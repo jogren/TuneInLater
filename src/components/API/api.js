@@ -9,7 +9,6 @@ const api = {
        throw new Error('There was an error getting your data');
      }
      const audiobooks = await response.json();
-     console.log(audiobooks.results)
      return audiobooks.results.map(book => ({
        author_name: book.artistName,
        artwork_url: book.artworkUrl100,
@@ -107,7 +106,6 @@ const api = {
   }
 },
   async getAllFavorites(currentUserID) {
-    console.log(currentUserID)
     const url = `http://localhost:3001/api/v1/users/${currentUserID}/bookfavorites`
     try {
       const options = {
@@ -121,8 +119,7 @@ const api = {
         throw new Error('There was an error getting your data');
       }
       const allFavoriteData = await response.json()
-      console.log(allFavoriteData)
-      return allFavoriteData
+      return allFavoriteData.favorites
     } catch (error) {
       throw new Error(error.message);
     }

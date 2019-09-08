@@ -17,8 +17,8 @@ class Nav extends Component {
   }
 
   render() {
-    const user = this.props.currentUser.name
-    console.log(this.props)
+    const { currentUser, logoutUser, newSearch, fetchUserFavorites } = this.props;
+    const user = currentUser.name
     return (
       <nav>
         <h1>TuneInLater</h1>
@@ -30,7 +30,7 @@ class Nav extends Component {
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
-          <button onClick={() => this.props.newSearch(this.state.search) }>Submit</button>
+          <button onClick={() => newSearch(this.state.search) }>Submit</button>
         </div>
         <select className="select-container">
           <option value="0">Select Genre:</option>
@@ -43,12 +43,12 @@ class Nav extends Component {
           <option value="7">Non-Fiction</option>
         </select>
         <NavLink to='/favorites'>
-          <button>Favorites</button>
+          <button onClick={() => fetchUserFavorites(currentUser.id)}>Favorites</button>
         </NavLink>
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>
-            <p onClick={this.props.logoutUser} className="p-logout">Log out</p>
+            <p onClick={logoutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>
       </nav>
