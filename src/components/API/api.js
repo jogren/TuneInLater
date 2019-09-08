@@ -102,8 +102,7 @@ const api = {
     if (!response.ok) {
       throw new Error('There was an error getting your data');
     }
-    const deleteData = await response.json()
-    console.log(deleteData)
+    
   } catch(error) {
     throw new Error(error.message);
   }

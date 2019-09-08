@@ -38,6 +38,8 @@ class App extends Component {
     await api.newFavorite(favoriteInfo, currentUserID)
   }
 
+
+
   structureObject = (favorite) => {
     return {
       book_id: favorite.book_id,
@@ -59,6 +61,7 @@ class App extends Component {
         toggleFavoriteBook([...toggleFavoriteReducer])
         // this.setState({ ...this.state.favorites })
         favorite["favorite"] = false;
+        api.dBdeleteFavorite(this.props.selectCurrentUserReducer.id, favorite.book_id)
       } else {
         favorite.favorite = true;
         toggleFavoriteBook([...toggleFavoriteReducer, favorite])
