@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import api from '../API/api';
+import { getUserFavorites } from '../actions';
+// import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 class Login extends Component {
@@ -24,20 +27,24 @@ class Login extends Component {
     this.props.createNewUser(userObject)
   }
 
-  structureLoginUserObject = (e) => {
+  structureLoginUserObject = () => {
     const { loginEmail, loginPassword } = this.state;
     const userObject = {
       email: loginEmail,
       password: loginPassword
     }
     this.props.loginUser(userObject)
+    this.props.fetchUserFavorites(this.props.currentUser.id)
   }
+
+
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
+    console.log(this.props)
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
       <section>
@@ -86,7 +93,7 @@ class Login extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <NavLink to='/'>
-              <button onClick={(e) => this.structureLoginUserObject(e)}>Login</button>
+              <button onClick={() => this.structureLoginUserObject()}>Login</button>
             </NavLink>
           </form>
         </article>
@@ -94,5 +101,13 @@ class Login extends Component {
     )
   }
 }
+
+// const mapStateToProps = (state) => ({
+//   selectCurrentUserReducer: state.selectCurrentUserReducer,
+// })
+
+// const mapDispatchToProps = dispatch => ({
+//   getUserFavorites: (favorites) => dispatch(getUserFavorites(favorites))
+// })
 
 export default Login;

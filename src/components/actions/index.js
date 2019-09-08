@@ -16,3 +16,8 @@ export const toggleFavoriteBook = favorites => ({
 export const logoutUser = () => ({
   type: 'LOGOUT_USER'
 });
+
+export const getUserFavorites = (allFavorites) => ({
+  type: 'GET_USER_FAVORITES',
+  allFavorites
+})

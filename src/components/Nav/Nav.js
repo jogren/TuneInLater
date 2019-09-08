@@ -18,6 +18,7 @@ class Nav extends Component {
 
   render() {
     const user = this.props.currentUser.name
+    console.log(this.props)
     return (
       <nav>
         <h1>TuneInLater</h1>
@@ -41,6 +42,9 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
+        <NavLink to='/favorites'>
+          <button>Favorites</button>
+        </NavLink>
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>

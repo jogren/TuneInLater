@@ -25,11 +25,19 @@ class App extends Component {
     this.props.selectCurrentUser(current)
   }
 
-  postFavorite = async (favoriteInfo, currentUserID) => {
-    await api.newFavorite(favoriteInfo, currentUserID)
+  fetchUserFavorites = async (id) => {
+    if(id) {
+      console.log(id)
+      const userFavorites = await api.getAllFavorites(id);
+      this.props.getUserFavorites(userFavorites);
+    }
   }
 
 
+
+  postFavorite = async (favoriteInfo, currentUserID) => {
+    await api.newFavorite(favoriteInfo, currentUserID)
+  }
 
   structureObject = (favorite) => {
     return {
@@ -43,33 +51,37 @@ class App extends Component {
     }
   }
 
-    toggleFavorite = (favorite) => {
-      const { toggleFavoriteReducer, toggleFavoriteBook } = this.props;
-      if (toggleFavoriteReducer.find(book => book.book_id === favorite.book_id)) {
-        let index = toggleFavoriteReducer.map(book => book.book_id).indexOf(favorite.book_id);
-        toggleFavoriteReducer.splice(index, 1);
-        toggleFavoriteBook([...toggleFavoriteReducer])
-        // this.setState({ ...this.state.favorites })
-        favorite["favorite"] = false;
-        api.dBdeleteFavorite(this.props.selectCurrentUserReducer.id, favorite.book_id)
-      } else {
-        favorite.favorite = true;
-        toggleFavoriteBook([...toggleFavoriteReducer, favorite])
-        // this.setState({ favorites: [...this.state.favorites, favorite] });
-        const favoriteBook = this.structureObject(favorite)
-        this.postFavorite(favoriteBook, this.props.selectCurrentUserReducer.id)
-      }
+  toggleFavorite = (favorite) => {
+    const { toggleFavoriteReducer, toggleFavoriteBook } = this.props;
+    if (toggleFavoriteReducer.find(book => book.book_id === favorite.book_id)) {
+      let index = toggleFavoriteReducer.map(book => book.book_id).indexOf(favorite.book_id);
+      toggleFavoriteReducer.splice(index, 1);
+      toggleFavoriteBook([...toggleFavoriteReducer])
+      favorite["favorite"] = false;
+      api.dBdeleteFavorite(this.props.selectCurrentUserReducer.id, favorite.book_id)
+    } else {
+      favorite.favorite = true;
+      toggleFavoriteBook([...toggleFavoriteReducer, favorite])
+      const favoriteBook = this.structureObject(favorite)
+      this.postFavorite(favoriteBook, this.props.selectCurrentUserReducer.id)
+    }
 }
 
   render () {
     const { selectCurrentUserReducer, getAudiobooksReducer } = this.props;
     return (
       <div>
-        <Route exact path='/login' render={() => <Login loginUser={this.logInUser} createNewUser={this.makeNewUser} /> } />
+        <Route exact path='/login' render={() => <Login loginUser={this.logInUser} fetchUserFavorites={this.fetchUserFavorites} currentUser={selectCurrentUserReducer} createNewUser={this.makeNewUser} /> } />
         <Route exact path='/' render={() =>
           <main>
             <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} />
             <BookContainer audiobooks={getAudiobooksReducer} toggleFavorite={this.toggleFavorite} />
+          </main>
+        } />
+        <Route exact path='/favorites' render={() =>
+          <main>
+            <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} />
+            <BookContainer audiobooks={this.props.toggleFavoriteReducer} toggleFavorite={this.toggleFavorite} />
           </main>
         } />
       </div>
