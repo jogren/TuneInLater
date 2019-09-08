@@ -10,3 +10,16 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+
+const appReducer = combineReducers({
+  /* your app’s top-level reducers */
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}

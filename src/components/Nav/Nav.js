@@ -42,7 +42,7 @@ class Nav extends Component {
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>
-            <p className="p-logout">Log out</p>
+            <p onClick={this.props.logOutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>
 
