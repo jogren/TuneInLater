@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { logoutUser, toggleBtnStatus } from '../actions';
 import { connect } from 'react-redux';
 import './Nav.css';
+import bookPng from './book3.png'
 
 class Nav extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Nav extends Component {
     const user = currentUser.name
     return (
       <nav>
+        <img alt="book" src={bookPng}></img>
         <h1>TuneInLater</h1>
         <div className="search-container">
           <input
@@ -37,7 +39,7 @@ class Nav extends Component {
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
-          <button onClick={() => newSearch(this.state.search) }>Submit</button>
+          <button className="nav-button"onClick={() => newSearch(this.state.search) }>Submit</button>
         </div>
         <select onChange={(e) => newSearch(e.target.value)} className="select-container">
           <option value="">Select Genre:</option>
@@ -49,15 +51,15 @@ class Nav extends Component {
           <option value="Non fiction">Non-Fiction</option>
         </select>
         {toggleFavoriteBtnReducer === 'favorite' && <NavLink to='/favorites' onClick={this.helperFunction}>
-          <button>Favorites</button>
+          <button className="nav-button">Favorites</button>
         </NavLink> }
         {toggleFavoriteBtnReducer === 'showAll' && <NavLink to='/' onClick={() => toggleBtnStatus(toggleFavoriteBtnReducer)}>
-          <button>Show All</button>
+          <button className="nav-button">Show All</button>
         </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>
-            <p onClick={logoutUser} className="p-logout">Log out</p>
+            <p className="logout" onClick={logoutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>
       </nav>

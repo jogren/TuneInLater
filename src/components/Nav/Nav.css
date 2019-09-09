@@ -1,15 +1,27 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-area: nav;
-  padding: 0px 20px;
+  padding: 0px 30px;
+  background-color: lightslategrey;
+}
+
+nav input {
+  width: 250px;
 }
 
 .select-container {
   position: relative;
   width: 300px;
   height: 30px;
+}
+
+.nav-button {
+  height: 30px;
+  width: 100px;
+  border-radius: 4px;
+  padding: 0;
 }
 
 .search-container {
@@ -42,12 +54,19 @@ nav {
   border-color: black transparent transparent transparent;
 }
 
+img {
+  height: 50px;
+}
+
 .Nav_login {
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
 }
 
 h2 {
   border: 3px black solid;
+  margin: 0;
 }
 
 .p-logout {
@@ -59,4 +78,5 @@ h2 {
 .Nav_login:hover .p-logout {
   display: block;
   background-color: lightblue;
+  margin-top: 10px;
 }
