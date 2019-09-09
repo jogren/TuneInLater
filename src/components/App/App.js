@@ -65,7 +65,7 @@ class App extends Component {
   render () {
     const { selectCurrentUserReducer, getAudiobooksReducer, toggleFavoriteReducer } = this.props;
     return (
-      <div>
+      <div className="the-app">
         <Route exact path='/login' render={() => <Login loginUser={this.logInUser} currentUser={selectCurrentUserReducer} createNewUser={this.makeNewUser} /> } />
         <Route exact path='/' render={() =>
           <main>

@@ -1,10 +1,32 @@
+
+.big-container {
+  background-image: url('book2.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  width: 350px;
+}
+
+.title {
+  background-color: white;
+  opacity: 0.9;
+  margin: 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 .account-container {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.4108018207282913) 35%, rgba(0,212,255,1) 100%);
-    min-height: 100vh;
     display:flex;
     justify-content: space-evenly;
     align-items:center;
+    margin: 100px;
 }
 
 h4 {
@@ -14,7 +36,7 @@ h4 {
 .create-account-container {
     border-radius: 10px;
     background-color:white;
-    opacity: 0.6;
+    opacity: 0.9;
     display: flex;
     width: 500px;
     height: 300px;
@@ -26,7 +48,7 @@ h4 {
 .login-container {
     border-radius: 10px;
     background-color:white;
-    opacity: 0.6;
+    opacity: 0.9;
     width: 500px;
     height: 300px;
     display: flex;
@@ -49,29 +71,28 @@ input {
     width: 350px;
     font-size:1.2em;
     padding-left:6px;
-
 }
 
 .or {
     display: flex;
     align-items: center;
     font-size: 1.5em;
+    margin: 40px;
 }
 
-/* button {
-    width: 360px;
-    margin-top: 10px;
-    font-size: 1.2em;
-    border-radius: 4px;
-    height:45px;
-    font-weight: bold;
-    color:white;
-} */
+.big-container button {
+    height:30px;
+    width: 150px;
+    font-size: 1em;
+}
 
 .create-account-button {
     background-color: #7973b3;
+    margin-top: 15px;
+    width: 150px;
 }
 
 .login-button {
     background-color: #5db9e0;
+    width: 150px;
 }
