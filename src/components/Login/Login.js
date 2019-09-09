@@ -42,6 +42,10 @@ class Login extends Component {
     console.log(this.props)
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
+    <div className="big-container">
+      <header>
+        <h1>Tune-In-Later</h1>
+      </header>
       <section className="account-container">
         <article className="create-account-container">
           <h4>Create An Account</h4>
@@ -96,6 +100,7 @@ class Login extends Component {
           </form>
         </article>
       </section>
+    </div>
     )
   }
 }
