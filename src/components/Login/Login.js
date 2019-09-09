@@ -75,6 +75,7 @@ class Login extends Component {
           <h4>Login</h4>
           <form className="login-form">
             <input
+            className="login-email"
               type="text"
               placeholder="Email"
               name="loginEmail"
@@ -82,6 +83,7 @@ class Login extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <input
+            className="login-password"
               type="text"
               placeholder="Password"
               name="loginPassword"
