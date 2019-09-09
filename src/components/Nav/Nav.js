@@ -28,7 +28,7 @@ class Nav extends Component {
     const user = currentUser.name
     return (
       <nav>
-        <img alt="book" src={bookPng}></img>
+        <img className="icon" alt="book" src={bookPng}></img>
         <h1>TuneInLater</h1>
         <div className="search-container">
           <input

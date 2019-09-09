@@ -54,8 +54,13 @@ nav input {
   border-color: black transparent transparent transparent;
 }
 
-img {
+
+.icon {
   height: 50px;
+}
+
+img {
+  height: 150px;
 }
 
 .Nav_login {
