@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should take a snapshot when passed the correct data 1`] = `
+<div>
+  <Route
+    exact={true}
+    path="/login"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/favorites"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/details/:id"
+    render={[Function]}
+  />
+</div>
+`;

@@ -4,7 +4,7 @@ import { logoutUser, toggleBtnStatus } from '../actions';
 import { connect } from 'react-redux';
 import './Nav.css';
 
-class Nav extends Component {
+export class Nav extends Component {
   constructor(props) {
     super(props)
     this.state = {

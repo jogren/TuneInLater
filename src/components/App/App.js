@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom'
 import './App.css';
 
-class App extends Component {
+export class App extends Component {
 
   newSearch = async (text) => {
     const audio = await api.fetchAudio(text)
@@ -47,23 +47,23 @@ class App extends Component {
   }
 
   toggleFavorite = (favorite) => {
-    const { toggleFavoriteReducer, toggleFavoriteBook, selectCurrentUserReducer } = this.props;
-    if (toggleFavoriteReducer.find(book => book.book_id === favorite.book_id)) {
-      let index = toggleFavoriteReducer.map(book => book.book_id).indexOf(favorite.book_id);
-      toggleFavoriteReducer.splice(index, 1);
-      toggleFavoriteBook([...toggleFavoriteReducer])
+    const { favoritesReducer, toggleFavoriteBook, selectCurrentUserReducer } = this.props;
+    if (favoritesReducer.find(book => book.book_id === favorite.book_id)) {
+      let index = favoritesReducer.map(book => book.book_id).indexOf(favorite.book_id);
+      favoritesReducer.splice(index, 1);
+      toggleFavoriteBook([...favoritesReducer])
       favorite.favorite = false;
       api.dBdeleteFavorite(selectCurrentUserReducer.id, favorite.book_id)
     } else {
       favorite.favorite = true;
-      toggleFavoriteBook([...toggleFavoriteReducer, favorite])
+      toggleFavoriteBook([...favoritesReducer, favorite])
       const favoriteBook = this.structureObject(favorite)
       this.postFavorite(favoriteBook, selectCurrentUserReducer.id)
     }
 }
 
   render () {
-    const { selectCurrentUserReducer, getAudiobooksReducer, toggleFavoriteReducer } = this.props;
+    const { selectCurrentUserReducer, getAudiobooksReducer, favoritesReducer } = this.props;
     return (
       <div>
         <Route exact path='/login' render={() => <Login loginUser={this.logInUser} currentUser={selectCurrentUserReducer} createNewUser={this.makeNewUser} /> } />
@@ -76,7 +76,7 @@ class App extends Component {
         <Route exact path='/favorites' render={() =>
           <main>
             <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} fetchUserFavorites={this.fetchUserFavorites} />
-            <BookContainer audiobooks={toggleFavoriteReducer} toggleFavorite={this.toggleFavorite} />
+            <BookContainer audiobooks={favoritesReducer} toggleFavorite={this.toggleFavorite} />
           </main>
         } />
         <Route exact path='/details/:id' render={({ match }) => {
@@ -92,7 +92,7 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   selectCurrentUserReducer: state.selectCurrentUserReducer,
   getAudiobooksReducer: state.getAudiobooksReducer,
-  toggleFavoriteReducer: state.toggleFavoriteReducer
+  favoritesReducer: state.toggleFavoriteReducer
 })
 
 const mapDispatchToProps = dispatch => ({

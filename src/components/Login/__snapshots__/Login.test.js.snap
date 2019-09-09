@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should take a snapshot when passed valid data 1`] = `
+<section
+  className="account-container"
+>
+  <article
+    className="create-account-container"
+  >
+    <h4>
+      Create An Account
+    </h4>
+    <form
+      className="create-account-form"
+    >
+      <input
+        name="createName"
+        onChange={[Function]}
+        placeholder="Name"
+        type="text"
+        value=""
+      />
+      <input
+        name="createEmail"
+        onChange={[Function]}
+        placeholder="Email"
+        type="text"
+        value=""
+      />
+      <input
+        name="createPassword"
+        onChange={[Function]}
+        placeholder="Password"
+        type="text"
+        value=""
+      />
+      <button
+        className="create-account-button"
+        onClick={[Function]}
+      >
+        Create Account
+      </button>
+    </form>
+  </article>
+  <h4
+    className="or"
+  >
+    OR
+  </h4>
+  <article
+    className="login-container"
+  >
+    <h4>
+      Login
+    </h4>
+    <form
+      className="login-form"
+    >
+      <input
+        className="login-email"
+        name="loginEmail"
+        onChange={[Function]}
+        placeholder="Email"
+        type="text"
+        value=""
+      />
+      <input
+        className="login-password"
+        name="loginPassword"
+        onChange={[Function]}
+        placeholder="Password"
+        type="text"
+        value=""
+      />
+      <NavLink
+        to="/"
+      >
+        <button
+          className="login-button"
+          onClick={[Function]}
+        >
+          Login
+        </button>
+      </NavLink>
+    </form>
+  </article>
+</section>
+`;
