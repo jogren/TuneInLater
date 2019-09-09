@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
 import BookContainer from '../BookContainer/BookContainer';
 import Login from '../Login/Login';
+import CardDetails from '../CardDetails/CardDetails';
 import api from '../API/api.js'
 import { selectCurrentUser, getAudiobooks, toggleFavoriteBook, getUserFavorites } from '../actions';
 import { connect } from 'react-redux';
@@ -78,6 +79,11 @@ class App extends Component {
             <BookContainer audiobooks={toggleFavoriteReducer} toggleFavorite={this.toggleFavorite} />
           </main>
         } />
+        <Route exact path='/details/:id' render={({ match }) => {
+          let targetBook = this.props.getAudiobooksReducer.find(book => book.book_id == match.params.id);
+          console.log(targetBook)
+          return <CardDetails {...targetBook} />
+        }} />
       </div>
     )
   }
