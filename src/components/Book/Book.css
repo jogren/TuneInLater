@@ -1,15 +1,26 @@
 .Book_section {
   border: 3px solid black;
   background-color: lightgrey;
-  height: 250px;
-  overflow: scroll;
+  height: 150px;
+  width: 75%;
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   padding: 20px;
   margin: 20px;
 }
+
+.Book_section p {
+  width: 200px;
+}
+
+.Book_section h3 {
+  width: 200px;
+}
+
+
 
 .Book_button {
   position: absolute;

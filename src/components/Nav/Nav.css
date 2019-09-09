@@ -5,6 +5,7 @@ nav {
   grid-area: nav;
   padding: 0px 30px;
   background-color: lightslategrey;
+  height: 125px;
 }
 
 nav h1 {
