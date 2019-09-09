@@ -74,7 +74,7 @@ class App extends Component {
         } />
         <Route exact path='/favorites' render={() =>
           <main>
-            <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} />
+            <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} fetchUserFavorites={this.fetchUserFavorites} />
             <BookContainer audiobooks={toggleFavoriteReducer} toggleFavorite={this.toggleFavorite} />
           </main>
         } />

@@ -20,4 +20,9 @@ export const logoutUser = () => ({
 export const getUserFavorites = (allFavorites) => ({
   type: 'GET_USER_FAVORITES',
   allFavorites
-})
+});
+
+export const toggleBtnStatus = btnStatus => ({
+  type: 'TOGGLE_BTN_STATUS',
+  btnStatus
+});
