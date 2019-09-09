@@ -7,6 +7,18 @@ nav {
   background-color: lightslategrey;
 }
 
+nav h1 {
+  font-size: 2.2em;
+  margin: 0;
+
+}
+
+.icon-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 nav input {
   width: 250px;
 }
@@ -66,18 +78,27 @@ img {
 .Nav_login {
   display: flex;
   flex-direction: column;
-  height: 40px;
+  height: 38%;
 }
 
 h2 {
   border: 3px black solid;
   margin: 0;
+  padding: 5px;
 }
 
 .p-logout {
   padding: 5px;
   font-weight: bold;
-  display: none
+  display: none;
+  height: 21px;
+  text-align: center;
+}
+
+.NavLink_logout {
+  margin-top: -5px;
+  height: 37px;
+  text-decoration: none;
 }
 
 .Nav_login:hover .p-logout {

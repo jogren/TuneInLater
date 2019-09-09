@@ -74,7 +74,7 @@ class Login extends Component {
           <button className="create-account-button" onClick={(e) => this.structureUserObject(e)}>Create Account</button>
           </form>
         </article>
-        <h4 className="or">OR</h4>
+        <h4 className="or"></h4>
         <article className="login-container">
           <h4>Login</h4>
           <form className="login-form">

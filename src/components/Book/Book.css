@@ -5,9 +5,10 @@
   overflow: scroll;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding: 20px;
+  margin: 20px;
 }
 
 .Book_button {
