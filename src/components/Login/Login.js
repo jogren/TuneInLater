@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './Login.css'
 
 class Login extends Component {
   constructor(props) {
@@ -41,10 +42,10 @@ class Login extends Component {
     console.log(this.props)
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
-      <section>
-        <article>
+      <section className="account-container">
+        <article className="create-account-container">
           <h4>Create An Account</h4>
-          <form>
+          <form className="create-account-form">
             <input
               type="text"
               placeholder="Name"
@@ -66,12 +67,13 @@ class Login extends Component {
               value={createPassword}
               onChange={(e) => this.handleChange(e)}
             />
-          <button onClick={(e) => this.structureUserObject(e)}>Create Account</button>
+          <button className="create-account-button" onClick={(e) => this.structureUserObject(e)}>Create Account</button>
           </form>
         </article>
-        <article>
+        <h4 className="or">OR</h4>
+        <article className="login-container">
           <h4>Login</h4>
-          <form>
+          <form className="login-form">
             <input
               type="text"
               placeholder="Email"
@@ -87,7 +89,7 @@ class Login extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <NavLink to='/'>
-              <button onClick={() => this.structureLoginUserObject()}>Login</button>
+              <button className="login-button" onClick={() => this.structureLoginUserObject()}>Login</button>
             </NavLink>
           </form>
         </article>
