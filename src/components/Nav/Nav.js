@@ -32,21 +32,20 @@ class Nav extends Component {
           <input
             type="text"
             name="search"
-            placeholder="Search.."
+            placeholder="Search for audiobooks.."
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
           <button onClick={() => newSearch(this.state.search) }>Submit</button>
         </div>
-        <select className="select-container">
-          <option value="0">Select Genre:</option>
-          <option value="1">Home</option>
-          <option value="2">Comedy</option>
-          <option value="3">Horror</option>
-          <option value="4">Fantasy</option>
-          <option value="5">Romance</option>
-          <option value="6">Adventure</option>
-          <option value="7">Non-Fiction</option>
+        <select onChange={(e) => newSearch(e.target.value)} className="select-container">
+          <option value="">Select Genre:</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Horror">Horror</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Romance">Romance</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Non fiction">Non-Fiction</option>
         </select>
         {toggleFavoriteBtnReducer === 'favorite' && <NavLink to='/favorites' onClick={this.helperFunction}>
           <button>Favorites</button>
