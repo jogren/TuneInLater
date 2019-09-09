@@ -15,9 +15,9 @@ nav {
   display: none;
 }
 
-.select-selected {
+/* .select-selected {
   background-color: plum;
-}
+} */
 
 .select-selected:after {
   position: absolute;
