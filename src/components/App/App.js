@@ -79,7 +79,7 @@ class App extends Component {
             <BookContainer audiobooks={toggleFavoriteReducer} toggleFavorite={this.toggleFavorite} />
           </main>
         } />
-        <Route path='/:id' render={({ match }) => {
+        <Route exact path='/details/:id' render={({ match }) => {
           let targetBook = this.props.getAudiobooksReducer.find(book => book.book_id == match.params.id);
           console.log(targetBook)
           return <CardDetails {...targetBook} />
