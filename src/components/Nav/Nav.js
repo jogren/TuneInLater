@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { logoutUser } from '../actions';
+import { logoutUser, toggleBtnStatus } from '../actions';
 import { connect } from 'react-redux';
 import './Nav.css';
 
@@ -9,7 +9,6 @@ class Nav extends Component {
     super(props)
     this.state = {
       search: '',
-      btnStatus: 'favorite'
     }
   }
 
@@ -17,14 +16,14 @@ class Nav extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  toggleBtnStatus = () => {
-    let toggle = this.state.btnStatus === 'favorite' ? 'showAll' : 'favorite'
-    this.setState({ btnStatus: toggle })
+  helperFunction = () => {
+    const { toggleBtnStatus, toggleFavoriteBtnReducer, fetchUserFavorites, currentUser } = this.props;
+    toggleBtnStatus(toggleFavoriteBtnReducer);
+    fetchUserFavorites(currentUser.id);
   }
 
   render() {
-    console.log(this.state.btnStatus)
-    const { currentUser, logoutUser, newSearch, fetchUserFavorites } = this.props;
+    const { currentUser, logoutUser, newSearch, toggleFavoriteBtnReducer, toggleBtnStatus } = this.props;
     const user = currentUser.name
     return (
       <nav>
@@ -49,11 +48,11 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
-        {this.state.btnStatus === 'favorite' && <NavLink to='/favorites'>
-          <button onClick={() => fetchUserFavorites(currentUser.id)} onClick={this.toggleBtnStatus}>Favorites</button>
+        {toggleFavoriteBtnReducer === 'favorite' && <NavLink to='/favorites' onClick={this.helperFunction}>
+          <button>Favorites</button>
         </NavLink> }
-        {this.state.btnStatus === 'showAll' && <NavLink to='/'>
-          <button onClick={this.toggleBtnStatus}>Show All</button>
+        {toggleFavoriteBtnReducer === 'showAll' && <NavLink to='/' onClick={() => toggleBtnStatus(toggleFavoriteBtnReducer)}>
+          <button>Show All</button>
         </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
@@ -66,8 +65,13 @@ class Nav extends Component {
   };
 }
 
-const mapDispatchToProps = dispatch => ({
-  logoutUser: () => dispatch(logoutUser())
+const mapStateToProps = state => ({
+  toggleFavoriteBtnReducer: state.toggleFavoriteBtnReducer
 })
 
-export default connect(null, mapDispatchToProps)(Nav);
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser()),
+  toggleBtnStatus: (status) => dispatch(toggleBtnStatus(status))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
