@@ -28,8 +28,9 @@ class Nav extends Component {
     return (
       <nav>
         <h1>TuneInLater</h1>
-        <div>
+        <div className="search-container">
           <input
+            className="audio-search"
             type="text"
             name="search"
             placeholder="Search for audiobooks.."

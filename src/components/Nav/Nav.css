@@ -9,10 +9,22 @@ nav {
 .select-container {
   position: relative;
   width: 300px;
+  height: 30px;
 }
 
-.select-container select {
-  display: none;
+.search-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.audio-search {
+  padding: 0;
+  margin: 0;
+  height: 26px;
+}
+
+.select-container {
+
 }
 
 /* .select-selected {
@@ -27,7 +39,7 @@ nav {
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-color: black transparent transparent transparent; 
+  border-color: black transparent transparent transparent;
 }
 
 .Nav_login {
