@@ -24,7 +24,7 @@ class Login extends Component {
     this.props.createNewUser(userObject)
   }
 
-  structureLoginUserObject = (e) => {
+  structureLoginUserObject = () => {
     const { loginEmail, loginPassword } = this.state;
     const userObject = {
       email: loginEmail,
@@ -38,6 +38,7 @@ class Login extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
       <section>
@@ -86,7 +87,7 @@ class Login extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <NavLink to='/'>
-              <button onClick={(e) => this.structureLoginUserObject(e)}>Login</button>
+              <button onClick={() => this.structureLoginUserObject()}>Login</button>
             </NavLink>
           </form>
         </article>

@@ -8,7 +8,8 @@ class Nav extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      search: ''
+      search: '',
+      btnStatus: 'favorite'
     }
   }
 
@@ -16,8 +17,15 @@ class Nav extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  toggleBtnStatus = () => {
+    let toggle = this.state.btnStatus === 'favorite' ? 'showAll' : 'favorite'
+    this.setState({ btnStatus: toggle })
+  }
+
   render() {
-    const user = this.props.currentUser.name
+    console.log(this.state.btnStatus)
+    const { currentUser, logoutUser, newSearch, fetchUserFavorites } = this.props;
+    const user = currentUser.name
     return (
       <nav>
         <h1>TuneInLater</h1>
@@ -29,7 +37,7 @@ class Nav extends Component {
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
-          <button onClick={() => this.props.newSearch(this.state.search) }>Submit</button>
+          <button onClick={() => newSearch(this.state.search) }>Submit</button>
         </div>
         <select className="select-container">
           <option value="0">Select Genre:</option>
@@ -41,10 +49,16 @@ class Nav extends Component {
           <option value="6">Adventure</option>
           <option value="7">Non-Fiction</option>
         </select>
+        {this.state.btnStatus === 'favorite' && <NavLink to='/favorites'>
+          <button onClick={() => fetchUserFavorites(currentUser.id)} onClick={this.toggleBtnStatus}>Favorites</button>
+        </NavLink> }
+        {this.state.btnStatus === 'showAll' && <NavLink to='/'>
+          <button onClick={this.toggleBtnStatus}>Show All</button>
+        </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
           <NavLink exact to='/login'>
-            <p onClick={this.props.logoutUser} className="p-logout">Log out</p>
+            <p onClick={logoutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>
       </nav>

@@ -6,7 +6,7 @@ import { toggleFavoriteReducer } from './toggleFavoriteReducer';
 const appReducer = combineReducers({
   selectCurrentUserReducer,
   getAudiobooksReducer,
-  toggleFavoriteReducer
+  toggleFavoriteReducer,
 })
 
 const rootReducer = (state, action) => {
