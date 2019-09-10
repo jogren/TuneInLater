@@ -72,10 +72,6 @@ nav input {
   height: 50px;
 }
 
-img {
-  height: 150px;
-}
-
 .Nav_login {
   display: flex;
   flex-direction: column;

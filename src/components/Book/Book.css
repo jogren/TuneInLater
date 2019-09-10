@@ -20,14 +20,33 @@
   width: 200px;
 }
 
+.Book_image {
+  height: 150px;
+}
 
-
-.Book_button {
+.Book_image-favorite {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 7px;
+  right: 10px;
+  height: 40px;
+}
+
+.Book_image-favorite:hover {
+  transform: scale(1.2) perspective(100px);
+  transition: all 0.5s ease;
 }
 
 h3 {
   text-align: center;
+}
+
+.Book_button {
+    height: 35px;
+    width: 120px;
+    padding: 5px;
+    font-size: 14px;
+    background-color: #142431;
+    color: white;
+    font-weight: bold;
+    opacity: 0.8;
 }
