@@ -64,7 +64,7 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-
+  
 
   describe('mapStateToProps', () => {
     it('should return the current user, an array of books, and an array of favorite books', () => {
