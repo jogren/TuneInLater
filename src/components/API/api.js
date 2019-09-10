@@ -1,7 +1,7 @@
 const api = {
 
   async fetchAudio(text) {
-   const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&lang`
+   const url = `https://itunes.apple.com/search?term=${text}&media=audiobook&explicit=no&lang`
    try {
      const response = await fetch(url);
      if (!response.ok) {
@@ -100,7 +100,7 @@ const api = {
     if (!response.ok) {
       throw new Error('There was an error getting your data');
     }
-    
+
   } catch(error) {
     throw new Error(error.message);
   }

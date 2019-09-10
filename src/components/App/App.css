@@ -1,9 +1,10 @@
 main {
   height: 100vh;
   background: url('./book4.jpg');
-  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, 0)), url('./book4.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)), url('./book4.jpg');
   background-attachment: fixed;
   background-size: cover;
+  background-position: bottom;
   top: 0;
   bottom: 0;
   left: 0;
@@ -12,12 +13,12 @@ main {
 }
 
 @font-face {
-  font-family: 'Karla';
+  font-family: 'Raleway';
   font-style: normal;
-  font-weight: 400;
-  src: url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap")
+  font-weight: 200 ,300, 400, 400i, 700, 800;
+  src: url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,400i,700,800&display=swap")
 }
 
 .the-app {
-  font-family: "Karla"
+  font-family: "Raleway"
 }

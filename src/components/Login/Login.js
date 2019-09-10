@@ -43,7 +43,7 @@ class Login extends Component {
     return (
     <div className="big-container">
       <header>
-        <h1 className="title">Tune-In-Later</h1>
+        <h1 className="title">ListenUp</h1>
       </header>
       <section className="account-container">
         <article className="create-account-container">
