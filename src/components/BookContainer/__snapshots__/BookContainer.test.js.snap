@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookContainer should keep an up-to-date snapshot 1`] = `
+<section
+  className="BookContainer_section"
+>
+  <Book
+    artwork_url="http//:image.png"
+    author_name="Dr. Seuss"
+    book_id={1}
+    book_name="The Cat in the Hat"
+    description="Story Description"
+    favorite={true}
+    key="0"
+    primary_genre_name="children"
+    release_date="04/23/1990"
+    toggleFavorite={[MockFunction]}
+  />
+</section>
+`;

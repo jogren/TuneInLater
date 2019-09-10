@@ -1,4 +1,3 @@
-
 const api = {
 
   async fetchAudio(text) {
@@ -9,6 +8,7 @@ const api = {
        throw new Error('There was an error getting your data');
      }
      const audiobooks = await response.json();
+     console.log(audiobooks)
      return audiobooks.results.map(book => ({
        author_name: book.artistName,
        artwork_url: book.artworkUrl100,

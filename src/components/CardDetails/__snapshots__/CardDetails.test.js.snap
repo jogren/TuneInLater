@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardDetails should keep an up-to-date snapshot 1`] = `
+<section
+  className="CardDetails_section"
+>
+  <Link
+    className="back-btn"
+    to="/"
+  >
+    ◀ back
+  </Link>
+  <h4 />
+  <p />
+  <p>
+    <Markup
+      content=""
+      emptyContent={null}
+      parsedContent={null}
+      tagName="div"
+    />
+  </p>
+  <img />
+</section>
+`;

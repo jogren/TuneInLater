@@ -15,7 +15,7 @@ const BookContainer = ({ audiobooks, toggleFavorite }) => {
       toggleFavorite={toggleFavorite} 
       favorite={book.favorite} 
       description={book.description}
-      primary_genre_name={book.primary_genre_name} 
+      primary_genre_name={book.primary_genre_name}
       release_date={book.release_date}/>
     })
   
@@ -24,9 +24,7 @@ const BookContainer = ({ audiobooks, toggleFavorite }) => {
         {audiobookList}
       </section>
     )
-
   }
-
 }
 
 export default BookContainer;

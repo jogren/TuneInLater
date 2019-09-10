@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book should keep an up-to-date snapshot 1`] = `
+<section
+  className="Book_section"
+>
+  <button
+    className="Book_button"
+    onClick={[Function]}
+  >
+    Star
+  </button>
+  <h3>
+    The Cat in the Hat
+  </h3>
+  <p>
+    Dr. Seuss
+  </p>
+  <img
+    alt="The Cat in the Hat"
+    src="http//:image.png"
+  />
+  <Link
+    className="link"
+    to="/details/1"
+  >
+    <button>
+      See more Info
+    </button>
+  </Link>
+</section>
+`;
