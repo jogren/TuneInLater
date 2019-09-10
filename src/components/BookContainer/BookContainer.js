@@ -24,9 +24,7 @@ const BookContainer = ({ audiobooks, toggleFavorite }) => {
         {audiobookList}
       </section>
     )
-
   }
-
 }
 
 export default BookContainer;
