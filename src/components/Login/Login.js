@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Login.css'
+import headphones from './headphones.svg'
 
 class Login extends Component {
   constructor(props) {
@@ -43,7 +44,9 @@ class Login extends Component {
     return (
     <div className="big-container">
       <header>
-        <h1 className="title">ListenUp</h1>
+        <img alt="headphones" src={headphones}></img>
+        <h1 className="title">TuneInLater</h1>
+  
       </header>
       <section className="account-container">
         <article className="create-account-container">
