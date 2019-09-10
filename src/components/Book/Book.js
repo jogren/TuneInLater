@@ -16,6 +16,7 @@ const Book = ({ book_name, author_name, artwork_url, book_id, primary_genre_name
       <h3>{book_name}</h3>
       <p>Author(s): {author_name}</p>
       <img src={headphonesImg} onClick={() => toggleFavorite({ book_name, author_name, artwork_url, book_id, description, primary_genre_name, release_date, favorite }) } className="Book_image-favorite" />
+      <h6 className="Book_p-favorites">Favorite</h6>
       <Link to={`/details/${book_id}`} className="link">
         <button className="Book_button">See more Info</button>
       </Link>

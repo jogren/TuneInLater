@@ -7,7 +7,6 @@ nav h1 {
   font-size: 2.2em;
   margin: 0;
   color: white;
-  font-family: "Raleway";
   font-weight: 400;
   font-size: 3.5em;
   letter-spacing: 1.5px;
@@ -36,7 +35,6 @@ nav input {
   height: 32px;
   color: white;
   outline: none;
-  font-family: "Karla"
 }
 
 nav img {
@@ -58,16 +56,24 @@ select {
 .select-container {
   position: relative;
   width: 200px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .nav-button {
-  width: 160px;
   border-radius: 4px;
   padding: 0;
   background: none;
   border: none;
   font-size: 1em;
-  font-family: "Karla"
+}
+
+.nav-show-favorites {
+  width: 175px;
+}
+
+.nav-search {
+  width: 85px;
 }
 
 .search-container {
@@ -78,6 +84,9 @@ select {
 .audio-search {
   padding: 0px 0px 0px 5px;
   margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  height: 33px;
 }
 
 .audio-search::placeholder {

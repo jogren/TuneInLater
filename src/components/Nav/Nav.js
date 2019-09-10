@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { logoutUser, toggleBtnStatus } from '../actions';
 import { connect } from 'react-redux';
 import './Nav.css';
-import bookPng from './book3.svg'
 import headphones from './headphones.svg'
 
 export class Nav extends Component {
@@ -40,11 +39,11 @@ export class Nav extends Component {
             className="audio-search"
             type="text"
             name="search"
-            placeholder="Search for audiobooks.."
+            placeholder="Search for audiobooks..."
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
-          <button className="nav-button" disabled={!this.state.search} onClick={() => newSearch(this.state.search) }><h2>Submit</h2></button>
+          <button className="nav-button nav-search" disabled={!this.state.search} onClick={() => newSearch(this.state.search) }><h2>Submit</h2></button>
         </div>
         <select onChange={(e) => newSearch(e.target.value)} className="select-container">
           <option value="">Select Genre:</option>
@@ -56,7 +55,7 @@ export class Nav extends Component {
           <option value="Non fiction">Non-Fiction</option>
         </select>
         {toggleFavoriteBtnReducer === 'favorite' && <NavLink to='/favorites' onClick={this.helperFunction}>
-          <button className="nav-button"><h2>Show Favorites</h2></button>
+          <button className="nav-button nav-show-favorites"><h2>Show Favorites</h2></button>
         </NavLink> }
         {toggleFavoriteBtnReducer === 'showAll' && <NavLink to='/' onClick={() => toggleBtnStatus(toggleFavoriteBtnReducer)}>
           <button className="nav-button"><h2>Show All</h2></button>
