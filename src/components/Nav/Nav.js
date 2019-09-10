@@ -28,8 +28,10 @@ export class Nav extends Component {
     const user = currentUser.name
     return (
       <nav>
-        <img className="icon" alt="book" src={bookPng}></img>
-        <h1>TuneInLater</h1>
+        <div className="icon-title">
+          <img className="icon" alt="book" src={bookPng}></img>
+          <h1>TuneInLater</h1>
+        </div>
         <div className="search-container">
           <input
             className="audio-search"
@@ -58,7 +60,7 @@ export class Nav extends Component {
         </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
-          <NavLink exact to='/login'>
+          <NavLink exact to='/login' className="NavLink_logout">
             <p className="logout" onClick={logoutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>

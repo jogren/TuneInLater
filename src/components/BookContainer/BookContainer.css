@@ -1,8 +1,13 @@
 .BookContainer_section {
-  background-color: lightblue;
-  grid-area: container;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  padding: 10px;
+  background: url('./book4.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
