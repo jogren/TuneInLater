@@ -3,12 +3,18 @@ import { selectCurrentUserReducer } from './selectCurrentUserReducer';
 import { getAudiobooksReducer } from './getAudiobooksReducer';
 import { toggleFavoriteReducer } from './toggleFavoriteReducer';
 import { toggleFavoriteBtnReducer } from './toggleFavoriteBtnReducer';
+import { hasErroredReducer } from './hasErroredReducer';
+import { newUserErrorReducer } from './newUserErrorReducer';
+
+
 
 const appReducer = combineReducers({
   selectCurrentUserReducer,
   getAudiobooksReducer,
   toggleFavoriteReducer,
-  toggleFavoriteBtnReducer
+  toggleFavoriteBtnReducer,
+  hasErroredReducer,
+  newUserErrorReducer
 })
 
 const rootReducer = (state, action) => {

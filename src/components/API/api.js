@@ -36,7 +36,7 @@ const api = {
       }
       const response = await fetch(url, options)
       if (!response.ok) {
-        throw new Error('There was an error getting your data');
+        throw new Error('Account already exists');
       }
       const user = await response.json()
       console.log(user)
@@ -57,7 +57,7 @@ const api = {
       }
       const response = await fetch(url, options)
       if (!response.ok) {
-        throw new Error('There was an error getting your data');
+        throw new Error('Please enter a valid email and password');
       }
       const user = await response.json()
       console.log(user)
