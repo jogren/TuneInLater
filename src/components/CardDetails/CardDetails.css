@@ -1,0 +1,13 @@
+.CardDetails_section {
+  background-color: lightslategrey;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-container {
+  border: 3px solid black;
+  width: 70%;
+  text-align: center;
+}
