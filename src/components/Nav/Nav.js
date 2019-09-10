@@ -41,7 +41,7 @@ class Nav extends Component {
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
-          <button className="nav-button"onClick={() => newSearch(this.state.search) }>Submit</button>
+          <button className="nav-button"onClick={() => newSearch(this.state.search) }><h2>Search</h2></button>
         </div>
         <select onChange={(e) => newSearch(e.target.value)} className="select-container">
           <option value="">Select Genre:</option>
@@ -53,10 +53,10 @@ class Nav extends Component {
           <option value="Non fiction">Non-Fiction</option>
         </select>
         {toggleFavoriteBtnReducer === 'favorite' && <NavLink to='/favorites' onClick={this.helperFunction}>
-          <button className="nav-button">Favorites</button>
+          <button className="nav-button"><h2>Favorites</h2></button>
         </NavLink> }
         {toggleFavoriteBtnReducer === 'showAll' && <NavLink to='/' onClick={() => toggleBtnStatus(toggleFavoriteBtnReducer)}>
-          <button className="nav-button">Show All</button>
+          <button className="nav-button"><h2>Show All</h2></button>
         </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>

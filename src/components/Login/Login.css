@@ -87,12 +87,12 @@ input {
 }
 
 .create-account-button {
-    background-color: #7973b3;
+    background-color: lightslategrey;
     margin-top: 15px;
     width: 150px;
 }
 
 .login-button {
-    background-color: #5db9e0;
+    background-color: lightslategrey;
     width: 150px;
 }
