@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import headphones from './headphones.svg';
+import headphonesActive from './headphones-active.svg'
 import './Book.css';
 
 const Book = ({ book_name, author_name, artwork_url, book_id, primary_genre_name, release_date, description, toggleFavorite, favorite }) => {
