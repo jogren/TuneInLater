@@ -11,7 +11,7 @@ const CardDetails = ({author_name, artwork_url, book_name, description }) => {
         <h4>{book_name}</h4>
         <p>{author_name}</p>
         <p><Markup content={description}/></p>
-        <img src={artwork_url} />
+        <img src={artwork_url} alt={book_name}/>
       </div>
     </section>
   )

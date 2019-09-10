@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Login.css'
 import headphones from './headphones.svg'
@@ -76,6 +75,7 @@ class Login extends Component {
               name="createEmail"
               value={createEmail}
               onChange={(e) => this.handleChange(e)}
+              autoComplete="username"
             />
             <input
               type="password"
@@ -83,6 +83,7 @@ class Login extends Component {
               name="createPassword"
               value={createPassword}
               onChange={(e) => this.handleChange(e)}
+              autoComplete="current-password"
             />
               <button className="create-account-button" disabled={!createName || !createEmail || !createPassword} onClick={(e) => this.structureUserObject(e)}>Create Account</button>
           {this.props.newUserErrorReducer && <p>This account already exists. Please login!</p>}
@@ -99,6 +100,7 @@ class Login extends Component {
               name="loginEmail"
               value={loginEmail}
               onChange={(e) => this.handleChange(e)}
+              autoComplete="username"
             />
             <input
             className="login-password"
@@ -107,6 +109,7 @@ class Login extends Component {
               name="loginPassword"
               value={loginPassword}
               onChange={(e) => this.handleChange(e)}
+              autoComplete="current-password"
             />
               <button className="login-button" disabled={!loginEmail || !loginPassword} onClick={(e) => this.structureLoginUserObject(e)}>Login</button>
               {this.props.hasErroredReducer && <p>Please enter a valid email and password</p>}

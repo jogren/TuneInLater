@@ -97,7 +97,7 @@ export class App extends Component {
           </main>
         } />
         <Route exact path='/details/:id' render={({ match }) => {
-          let targetBook = this.props.getAudiobooksReducer.find(book => book.book_id == match.params.id);
+          let targetBook = this.props.getAudiobooksReducer.find(book => book.book_id === match.params.id);
           console.log(targetBook)
           return <CardDetails {...targetBook} />
         }} />
