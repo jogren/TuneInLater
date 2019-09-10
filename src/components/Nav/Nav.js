@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { logoutUser, toggleBtnStatus } from '../actions';
 import { connect } from 'react-redux';
 import './Nav.css';
-import bookPng from './book3.png'
+import bookPng from './book3.svg'
 
 class Nav extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class Nav extends Component {
             value={this.state.search}
             onChange={e => this.handleSearch(e)}
             / >
-          <button className="nav-button"onClick={() => newSearch(this.state.search) }><h2>Search..</h2></button>
+          <button className="nav-button"onClick={() => newSearch(this.state.search) }><h2>Submit</h2></button>
         </div>
         <select onChange={(e) => newSearch(e.target.value)} className="select-container">
           <option value="">Select Genre:</option>

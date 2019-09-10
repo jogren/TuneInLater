@@ -65,7 +65,7 @@ class Login extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               name="createPassword"
               value={createPassword}
@@ -88,7 +88,7 @@ class Login extends Component {
             />
             <input
             className="login-password"
-              type="text"
+              type="password"
               placeholder="Password"
               name="loginPassword"
               value={loginPassword}
