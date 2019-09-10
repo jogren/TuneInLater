@@ -1,18 +1,55 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-area: nav;
-  padding: 0px 20px;
+  padding: 0px 30px;
+  background-color: lightslategrey;
+  height: 125px;
+}
+
+nav h1 {
+  font-size: 2.2em;
+  margin: 0;
+
+}
+
+.icon-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav input {
+  width: 250px;
 }
 
 .select-container {
   position: relative;
   width: 300px;
+  height: 30px;
 }
 
-.select-container select {
-  display: none;
+.nav-button {
+  height: 30px;
+  width: 100px;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.audio-search {
+  padding: 0;
+  margin: 0;
+  height: 26px;
+}
+
+.select-container {
+
 }
 
 /* .select-selected {
@@ -27,24 +64,46 @@ nav {
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-color: black transparent transparent transparent; 
+  border-color: black transparent transparent transparent;
+}
+
+
+.icon {
+  height: 50px;
+}
+
+img {
+  height: 150px;
 }
 
 .Nav_login {
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 38%;
 }
 
 h2 {
   border: 3px black solid;
+  margin: 0;
+  padding: 5px;
 }
 
 .p-logout {
   padding: 5px;
   font-weight: bold;
-  display: none
+  display: none;
+  height: 21px;
+  text-align: center;
+}
+
+.NavLink_logout {
+  margin-top: -5px;
+  height: 37px;
+  text-decoration: none;
 }
 
 .Nav_login:hover .p-logout {
   display: block;
   background-color: lightblue;
+  margin-top: 10px;
 }

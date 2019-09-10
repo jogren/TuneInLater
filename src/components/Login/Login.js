@@ -41,6 +41,10 @@ class Login extends Component {
   render() {
     const { createName, createEmail, createPassword, loginEmail, loginPassword } = this.state;
     return (
+    <div className="big-container">
+      <header>
+        <h1 className="title">Tune-In-Later</h1>
+      </header>
       <section className="account-container">
         <article className="create-account-container">
           <h4>Create An Account</h4>
@@ -69,7 +73,7 @@ class Login extends Component {
           <button className="create-account-button" onClick={(e) => this.structureUserObject(e)}>Create Account</button>
           </form>
         </article>
-        <h4 className="or">OR</h4>
+        <h4 className="or"></h4>
         <article className="login-container">
           <h4>Login</h4>
           <form className="login-form">
@@ -95,6 +99,7 @@ class Login extends Component {
           </form>
         </article>
       </section>
+    </div>
     )
   }
 }

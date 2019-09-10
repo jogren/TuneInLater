@@ -8,12 +8,10 @@ const Book = ({ book_name, author_name, artwork_url, book_id, primary_genre_name
 
   return(
     <section className="Book_section">
-      <button onClick={() => toggleFavorite({ book_name, author_name, artwork_url, book_id, description, primary_genre_name, release_date, favorite }) } className="Book_button">Star</button>
-      <h3>{book_name}</h3>
-      <p>{author_name}</p>
       <img src={artwork_url} alt={book_name}/>
-      <img src={headphones}/>
-      <img src={headphonesActive}/>
+      <h3>{book_name}</h3>
+      <p>Author(s): {author_name}</p>
+      <button onClick={() => toggleFavorite({ book_name, author_name, artwork_url, book_id, description, primary_genre_name, release_date, favorite }) } className="Book_button">Star</button>
       <Link to={`/details/${book_id}`} className="link">
         <button>See more Info</button>
       </Link>

@@ -6,3 +6,14 @@ main {
     "nav"
     "container";
 }
+
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap")
+}
+
+.the-app {
+  font-family: "Karla"
+}
