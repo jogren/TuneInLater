@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Login.css'
 
 class Login extends Component {
@@ -22,15 +23,25 @@ class Login extends Component {
       email: createEmail,
       password: createPassword
     }
+    this.setState({
+      createName: '',
+      createEmail: '',
+      createPassword: ''
+    })
     this.props.createNewUser(userObject)
   }
 
-  structureLoginUserObject = () => {
+  structureLoginUserObject = (e) => {
+    e.preventDefault();
     const { loginEmail, loginPassword } = this.state;
     const userObject = {
       email: loginEmail,
       password: loginPassword
     }
+    this.setState({ 
+      loginEmail: '',
+      loginPassword: ''
+     })
     this.props.loginUser(userObject)
   }
 
@@ -70,7 +81,8 @@ class Login extends Component {
               value={createPassword}
               onChange={(e) => this.handleChange(e)}
             />
-          <button className="create-account-button" onClick={(e) => this.structureUserObject(e)}>Create Account</button>
+              <button className="create-account-button" disabled={!createName || !createEmail || !createPassword} onClick={(e) => this.structureUserObject(e)}>Create Account</button>
+          {this.props.newUserErrorReducer && <p>This account already exists. Please login!</p>}
           </form>
         </article>
         <h4 className="or"></h4>
@@ -93,9 +105,8 @@ class Login extends Component {
               value={loginPassword}
               onChange={(e) => this.handleChange(e)}
             />
-            <NavLink to='/'>
-              <button className="login-button" onClick={() => this.structureLoginUserObject()}>Login</button>
-            </NavLink>
+              <button className="login-button" disabled={!loginEmail || !loginPassword} onClick={(e) => this.structureLoginUserObject(e)}>Login</button>
+              {this.props.hasErroredReducer && <p>Please enter a valid email and password</p>}
           </form>
         </article>
       </section>
@@ -104,4 +115,9 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export const mapStateToProps = (state) => ({
+  hasErroredReducer: state.hasErroredReducer,
+  newUserErrorReducer: state.newUserErrorReducer
+})
+
+export default connect(mapStateToProps)(Login);

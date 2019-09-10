@@ -26,3 +26,13 @@ export const toggleBtnStatus = btnStatus => ({
   type: 'TOGGLE_BTN_STATUS',
   btnStatus
 });
+
+export const hasErrored = errorMsg => ({
+  type: 'HAS_ERRORED',
+  errorMsg
+})
+
+export const newUserError = errorMsg => ({
+  type: 'NEW_USER_ERROR',
+  errorMsg
+})

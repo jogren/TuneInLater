@@ -4,9 +4,9 @@ import BookContainer from '../BookContainer/BookContainer';
 import Login from '../Login/Login';
 import CardDetails from '../CardDetails/CardDetails';
 import api from '../API/api.js'
-import { selectCurrentUser, getAudiobooks, toggleFavoriteBook, getUserFavorites } from '../actions';
+import { selectCurrentUser, getAudiobooks, toggleFavoriteBook, getUserFavorites, hasErrored, newUserError } from '../actions';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import './App.css';
 
 export class App extends Component {
@@ -17,12 +17,21 @@ export class App extends Component {
   }
 
   makeNewUser = async (userInfo) => {
-    await api.createNewUser(userInfo)
+    try {
+      await api.createNewUser(userInfo)
+    } catch(error){
+      this.props.newUserError(error.message)
+    }
   }
 
   logInUser = async (userInfo) => {
-    const current = await api.logIn(userInfo)
-    this.props.selectCurrentUser(current)
+    try {
+      const current = await api.logIn(userInfo)
+      this.props.selectCurrentUser(current)
+
+    } catch(error) {
+      this.props.hasErrored(error.message)
+    }
   }
 
   fetchUserFavorites = async (id) => {
@@ -63,10 +72,18 @@ export class App extends Component {
 }
 
   render () {
+    console.log(this.props.hasErroredReducer)
     const { selectCurrentUserReducer, getAudiobooksReducer, favoritesReducer } = this.props;
+    console.log(selectCurrentUserReducer)
     return (
       <div className="the-app">
-        <Route exact path='/login' render={() => <Login loginUser={this.logInUser} currentUser={selectCurrentUserReducer} createNewUser={this.makeNewUser} /> } />
+        <Route exact path='/login' render={() => (
+          selectCurrentUserReducer ? (
+            <Redirect to='/' />
+          ) : (
+            <Login loginUser={this.logInUser} currentUser={selectCurrentUserReducer} createNewUser={this.makeNewUser} /> 
+          )
+        )} />
         <Route exact path='/' render={() =>
           <main>
             <Nav newSearch={this.newSearch} currentUser={selectCurrentUserReducer} fetchUserFavorites={this.fetchUserFavorites} />
@@ -92,14 +109,18 @@ export class App extends Component {
 export const mapStateToProps = (state) => ({
   selectCurrentUserReducer: state.selectCurrentUserReducer,
   getAudiobooksReducer: state.getAudiobooksReducer,
-  favoritesReducer: state.toggleFavoriteReducer
+  favoritesReducer: state.toggleFavoriteReducer,
+  hasErroredReducer: state.hasErroredReducer,
+  newUserErrorReducer: state.newUserErrorReducer
 })
 
 const mapDispatchToProps = dispatch => ({
   selectCurrentUser: userObj => dispatch(selectCurrentUser(userObj)),
   getAudiobooks: audiobooks => dispatch(getAudiobooks(audiobooks)),
   toggleFavoriteBook: favorites => dispatch(toggleFavoriteBook(favorites)),
-  getUserFavorites: (favorites) => dispatch(getUserFavorites(favorites))
+  getUserFavorites: (favorites) => dispatch(getUserFavorites(favorites)),
+  hasErrored: errorMsg => dispatch(hasErrored(errorMsg)),
+  newUserError: errorMsg => dispatch(newUserError(errorMsg))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
