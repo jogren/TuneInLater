@@ -4,6 +4,7 @@ import { logoutUser, toggleBtnStatus } from '../actions';
 import { connect } from 'react-redux';
 import './Nav.css';
 import bookPng from './book3.svg'
+import headphones from './headphones.svg'
 
 export class Nav extends Component {
   constructor(props) {
@@ -24,14 +25,16 @@ export class Nav extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { currentUser, logoutUser, newSearch, toggleFavoriteBtnReducer, toggleBtnStatus } = this.props;
     const user = currentUser.name
     return (
       <nav>
         <div className="icon-title">
-          <img className="icon" alt="book" src={bookPng}></img>
           <h1>TuneInLater</h1>
+          <img alt="headphones" src={headphones}></img>
         </div>
+        <div className="form-container">
         <div className="search-container">
           <input
             className="audio-search"
@@ -63,6 +66,7 @@ export class Nav extends Component {
           <NavLink exact to='/login' className="NavLink_logout">
             <p className="logout" onClick={logoutUser} className="p-logout">Log out</p>
           </NavLink>
+        </div>
         </div>
       </nav>
     );

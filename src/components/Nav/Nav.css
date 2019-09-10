@@ -1,22 +1,31 @@
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  grid-area: nav;
   padding: 0px 30px;
-  height: 200px;
+  height: 175px;
 }
 
 nav h1 {
   font-size: 2.2em;
   margin: 0;
   color: white;
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 3.5em;
+  letter-spacing: 1.5px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
 }
 
 .icon-title {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 nav input {
@@ -28,6 +37,11 @@ nav input {
   color: white;
   outline: none;
   font-family: "Karla"
+}
+
+nav img {
+  height: 50px;
+  margin-left: 10px;
 }
 
 
@@ -62,7 +76,7 @@ select {
 }
 
 .audio-search {
-  padding: 0;
+  padding: 0px 0px 0px 5px;
   margin: 0;
 }
 
@@ -97,7 +111,7 @@ select {
 .Nav_login {
   display: flex;
   flex-direction: column;
-  height: 19%;
+  height: 77%;
 }
 
 h2 {
@@ -118,12 +132,14 @@ h2 {
 
 .NavLink_logout {
   margin-top: -5px;
-  height: 37px;
+  height: 5px;
   text-decoration: none;
 }
 
 .Nav_login:hover .p-logout {
   display: block;
-  background-color: lightblue;
+  background-color: none;
+  color: white;
+  border: 3px solid white;
   margin-top: 10px;
 }
