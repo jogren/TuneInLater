@@ -61,7 +61,7 @@ select {
 }
 
 .nav-button {
-  width: 125px;
+  width: 160px;
   border-radius: 4px;
   padding: 0;
   background: none;
@@ -84,14 +84,6 @@ select {
   color: white;
 }
 
-.select-container {
-
-}
-
-/* .select-selected {
-  background-color: plum;
-} */
-
 .select-selected:after {
   position: absolute;
   content: '';
@@ -102,7 +94,6 @@ select {
   border: 6px solid transparent;
   border-color: black transparent transparent transparent;
 }
-
 
 .icon {
   height: 50px;
@@ -117,7 +108,7 @@ select {
 h2 {
   border: 3px white solid;
   margin: 0;
-  padding: 5px;
+  padding: 5px 10px;
   color: aliceblue;
   font-size: 1.2em;
 }
@@ -132,7 +123,7 @@ h2 {
 
 .NavLink_logout {
   margin-top: -5px;
-  height: 5px;
+  height: 25px;
   text-decoration: none;
 }
 
