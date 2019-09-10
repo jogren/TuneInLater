@@ -65,7 +65,7 @@ export class Nav extends Component {
   };
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   toggleFavoriteBtnReducer: state.toggleFavoriteBtnReducer
 })
 

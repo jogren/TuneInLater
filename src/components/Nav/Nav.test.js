@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Nav } from './Nav'; 
+import { Nav, mapStateToProps } from './Nav'; 
 
 describe('Nav', () => {
   let wrapper;
@@ -42,4 +42,22 @@ describe('Nav', () => {
     expect(mockToggleBtnStatus).toHaveBeenCalledWith(mockFavoriteBtnStatus)
     expect(mockFetchFavorites).toHaveBeenCalledWith(3)
   })
+
+  describe('mapStateToProps', () => {
+    it('should return the favorite button state', () => {
+      const mockState = {
+        selectCurrentUserReducer: { id: 1, name: 'Jacob' },
+        getAudiobooksReducer: ['book1', 'book2'],
+        toggleFavoriteReducer: ['book2'],
+        toggleFavoriteBtnReducer: 'favorite'
+      };
+      const expected = {
+        toggleFavoriteBtnReducer: 'favorite'
+      };
+
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  });
 })

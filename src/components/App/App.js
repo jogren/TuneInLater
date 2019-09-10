@@ -89,7 +89,7 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   selectCurrentUserReducer: state.selectCurrentUserReducer,
   getAudiobooksReducer: state.getAudiobooksReducer,
   favoritesReducer: state.toggleFavoriteReducer

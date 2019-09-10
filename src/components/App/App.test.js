@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { App } from './App';
+import { App, mapStateToProps } from './App';
 
 describe('App', () => {
   let wrapper;
@@ -63,4 +63,41 @@ describe('App', () => {
   it('should take a snapshot when passed the correct data', () => {
     expect(wrapper).toMatchSnapshot();
   })
+
+
+
+  describe('mapStateToProps', () => {
+    it('should return the current user, an array of books, and an array of favorite books', () => {
+      const mockState = {
+        selectCurrentUserReducer: { id: 1, name: 'Jacob' },
+        getAudiobooksReducer: ['book1', 'book2'],
+        toggleFavoriteReducer: ['book2'],
+        toggleFavoriteBtnReducer: 'favorite'
+      };
+      const expected = {
+        selectCurrentUserReducer: { id: 1, name: 'Jacob' },
+        getAudiobooksReducer: ['book1', 'book2'],
+        favoritesReducer: ['book2']     
+      };
+
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  });
+
+  // describe('mapDispatchToProps', () => {
+  //   it('calls dispatch with an addTodo action when handleSubmit is called', () => {
+  //     // Setup
+  //     const mockDispatch = jest.fn();
+  //     const actionToDispatch = addTodo('Learn Redux!', 1);
+
+  //     // Execution
+  //     const mappedProps = mapDispatchToProps(mockDispatch);
+  //     mappedProps.handleSubmit('Learn Redux!', 1);
+
+  //     // Expectaion
+  //     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  //   });
+  // });
 })
