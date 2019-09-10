@@ -4,21 +4,22 @@ exports[`Book should keep an up-to-date snapshot 1`] = `
 <section
   className="Book_section"
 >
-  <button
-    className="Book_button"
-    onClick={[Function]}
-  >
-    Star
-  </button>
+  <img
+    alt="The Cat in the Hat"
+    className="Book_image"
+    src="http//:image.png"
+  />
   <h3>
     The Cat in the Hat
   </h3>
   <p>
+    Author(s): 
     Dr. Seuss
   </p>
   <img
-    alt="The Cat in the Hat"
-    src="http//:image.png"
+    className="Book_image-favorite"
+    onClick={[Function]}
+    src="headphones.svg"
   />
   <Link
     className="link"
