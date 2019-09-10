@@ -1,10 +1,13 @@
 main {
   height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr 7fr;
-  grid-template-areas:
-    "nav"
-    "container";
+  background: url('./book4.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 }
 
 @font-face {
