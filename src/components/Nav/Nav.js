@@ -57,12 +57,12 @@ export class Nav extends Component {
         {toggleFavoriteBtnReducer === 'favorite' && <NavLink to='/favorites' onClick={this.helperFunction}>
           <button className="nav-button nav-show-favorites"><h2>Show Favorites</h2></button>
         </NavLink> }
-        {toggleFavoriteBtnReducer === 'showAll' && <NavLink to='/' onClick={() => toggleBtnStatus(toggleFavoriteBtnReducer)}>
+        {toggleFavoriteBtnReducer === 'showAll' && <NavLink to='/home' onClick={() => toggleBtnStatus(toggleFavoriteBtnReducer)}>
           <button className="nav-button"><h2>Show All</h2></button>
         </NavLink>}
         <div className="Nav_login">
           <h2>Welcome, {user ? user.charAt(0).toUpperCase() + user.slice(1) : ''}</h2>
-          <NavLink exact to='/login' className="NavLink_logout">
+          <NavLink exact to='/' className="NavLink_logout">
             <p className="logout" onClick={logoutUser} className="p-logout">Log out</p>
           </NavLink>
         </div>
