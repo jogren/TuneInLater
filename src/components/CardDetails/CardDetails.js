@@ -7,10 +7,10 @@ const CardDetails = ({author_name, artwork_url, book_name, description }) => {
   return (
     <section className="CardDetails_section">
       <div className="details-container">
-        <Link to={'/'} className='back-btn'>◀ back</Link>
+        <Link to={'/home'} className='back-btn'>◀ back</Link>
         <h4>{book_name}</h4>
         <p>{author_name}</p>
-        <p><Markup content={description}/></p>
+        <Markup content={description}/>
         <img src={artwork_url} alt={book_name}/>
       </div>
     </section>
