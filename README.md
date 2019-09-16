@@ -27,21 +27,12 @@ TuneInLater is a full stack web app where users can log in and browse audiobooks
 
 ## Set Up
 #### Clone and Install Backend
-###### Clone down this [backend repository](https://github.com/turingschool-examples/favorites-tracker-api) and follow instructions within to install dependencies and configure postgresSQL.
+- Clone down this [backend repository](https://github.com/turingschool-examples/favorites-tracker-api) and follow instructions within to install dependencies and configure postgresSQL
+- Install the application's dependencies from within the cloned directory: `npm install`
+- Then launch the backend: `npm start`
 
-###### Install the application's dependencies from within the cloned directory:
-
-`npm install`
-###### Then launch the backend:
-
-`npm start`
 #### Clone and Install UI
-###### Clone down this UI repository.
-
-###### Install the application's dependencies from within the cloned directory:
-
-`npm install`
-###### Then launch the application within the browser:
-
-`npm start`
-###### Launch API & UI - With the backend server running on localhost:3001 open http://localhost:3000 to view the application in your browser.
+- Clone down this UI repository.
+- Install the application's dependencies from within the cloned directory: `npm install`
+- Then launch the application within the browser: `npm start`
+- With the backend server running on localhost:3001, open http://localhost:3000 to view the application in your browser
